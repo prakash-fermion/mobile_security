@@ -8,7 +8,9 @@ import 'package:mobile_security/prakash/features/auth/presentation/pages/auth_pa
 import 'package:mobile_security/prakash/features/auth/presentation/pages/login_page.dart';
 import 'package:mobile_security/prakash/features/auth/presentation/pages/register_page.dart';
 import 'package:mobile_security/prakash/features/auth/presentation/pages/splash_screen.dart';
+import 'package:mobile_security/prakash/features/home/presentation/bloc/home_bloc.dart';
 import 'package:mobile_security/prakash/features/home/presentation/pages/home_page_screen.dart';
+import 'package:mobile_security/prakash/features/home/presentation/pages/sim_binding_page.dart';
 
 class RouteConfig {
   static GoRouter goRouter = GoRouter(
@@ -107,6 +109,22 @@ class RouteConfig {
                     loginWithMpinUsecase: sl(),
                   ),
               child: AuthPage(),
+            ),
+          );
+        },
+      ),
+      GoRoute(
+        name: RouteName.simBindingRoute,
+        path: RouteName.simBindingRoute,
+        pageBuilder: (context, state) {
+          return MaterialPage(
+            child: BlocProvider(
+              create:
+                  (context) => HomeBloc(
+                    checkBindingStatusUseCase: sl(),
+                    verifySimBindingUsecase: sl(),
+                  ),
+              child: SimBindingPage(),
             ),
           );
         },

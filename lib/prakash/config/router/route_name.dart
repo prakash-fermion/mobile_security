@@ -6,4 +6,5 @@ class RouteName {
   static const loginRoute = '/login';
   static const registerRoute = '/register';
   static const authRoute = '/auth';
+  static const simBindingRoute = '/sim-binding';
 }

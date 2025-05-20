@@ -50,7 +50,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
   @override
   void initState() {
     if (Platform.isIOS) {
-      _checkDebugger();
+      //_checkDebugger();
     }
     super.initState();
   }
@@ -87,9 +87,9 @@ class _HomePageScreenState extends State<HomePageScreen> {
             const Text('Welcome to the Home Page!'),
             ElevatedButton(
               onPressed: () {
-                //_checkDebugger();
+                context.pushNamed(RouteName.simBindingRoute);
               },
-              child: const Text('Click Me'),
+              child: const Text('SIM/Device Binding'),
             ),
           ],
         ),
