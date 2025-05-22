@@ -45,6 +45,7 @@ dependencies:
   device_info_plus: ^11.4.0
   carrier_info: ^2.0.8
   url_launcher: ^6.3.1
+  flutter_jailbreak_detection: ^1.10.0
 
 dev_dependencies:
   flutter_test:

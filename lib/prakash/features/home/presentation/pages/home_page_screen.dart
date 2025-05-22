@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_jailbreak_detection/flutter_jailbreak_detection.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mobile_security/prakash/config/router/route_name.dart';
 import 'package:mobile_security/prakash/core/utils/custom_logger.dart';
@@ -19,16 +20,28 @@ class HomePageScreen extends StatefulWidget {
 
 class _HomePageScreenState extends State<HomePageScreen> {
   void _checkDebugger() async {
+    String message = '';
+    bool jailbroken = await FlutterJailbreakDetection.jailbroken;
+    bool devMode = await FlutterJailbreakDetection.developerMode;
+    CustomLogger.info('Jailbreak: $jailbroken --- Developer Mode: $devMode');
+
     bool isDebug = await PlatformChannelUtility.isDebuggerAttached();
     CustomLogger.info('Debugger attached: $isDebug');
-    if (isDebug) {
+
+    if (jailbroken) {
+      message = 'Jailbreak detected';
+    } else if (devMode || isDebug) {
+      message = 'Developer Mode or Debugger attached';
+    }
+
+    if (isDebug || jailbroken || devMode) {
       showDialog(
         context: context,
         barrierDismissible: false,
         builder: (context) {
           return AlertDialog(
-            title: const Text('Debugger Attached'),
-            content: const Text('Debugger is attached to the app.'),
+            title: const Text('Warning'),
+            content: Text(message),
             actions: [
               TextButton(
                 onPressed: () {
@@ -49,9 +62,9 @@ class _HomePageScreenState extends State<HomePageScreen> {
 
   @override
   void initState() {
-    if (Platform.isIOS) {
-      //_checkDebugger();
-    }
+    // if (Platform.isIOS) {
+    //   _checkDebugger();
+    // }
     super.initState();
   }
 
