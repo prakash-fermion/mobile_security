@@ -8,6 +8,8 @@ import 'package:mobile_security/prakash/features/auth/presentation/pages/auth_pa
 import 'package:mobile_security/prakash/features/auth/presentation/pages/login_page.dart';
 import 'package:mobile_security/prakash/features/auth/presentation/pages/register_page.dart';
 import 'package:mobile_security/prakash/features/auth/presentation/pages/splash_screen.dart';
+import 'package:mobile_security/prakash/features/fixed_deposit_calculator/presentation/bloc/fixed_deposit_calculator_bloc.dart';
+import 'package:mobile_security/prakash/features/fixed_deposit_calculator/presentation/pages/fixed_deposite_calculator_page.dart';
 import 'package:mobile_security/prakash/features/home/presentation/bloc/home_bloc.dart';
 import 'package:mobile_security/prakash/features/home/presentation/pages/home_page_screen.dart';
 import 'package:mobile_security/prakash/features/home/presentation/pages/sim_binding_page.dart';
@@ -125,6 +127,23 @@ class RouteConfig {
                     verifySimBindingUsecase: sl(),
                   ),
               child: SimBindingPage(),
+            ),
+          );
+        },
+      ),
+      GoRoute(
+        name: RouteName.fixedDepositCalculatorRoute,
+        path: RouteName.fixedDepositCalculatorRoute,
+        pageBuilder: (context, state) {
+          return MaterialPage(
+            child: BlocProvider(
+              create:
+                  (context) => FixedDepositCalculatorBloc(
+                    getCitizenDropdownListUsecase: sl(),
+                    getInterestRateListUsecase: sl(),
+                    calculateFdUsecase: sl(),
+                  ),
+              child: FixedDepositeCalculatorPage(),
             ),
           );
         },

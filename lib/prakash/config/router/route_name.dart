@@ -7,4 +7,5 @@ class RouteName {
   static const registerRoute = '/register';
   static const authRoute = '/auth';
   static const simBindingRoute = '/sim-binding';
+  static const fixedDepositCalculatorRoute = '/fixed-deposit-calculator';
 }

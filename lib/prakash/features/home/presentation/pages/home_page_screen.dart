@@ -93,20 +93,44 @@ class _HomePageScreenState extends State<HomePageScreen> {
           ),
         ],
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text('Welcome to the Home Page!'),
-            ElevatedButton(
-              onPressed: () {
-                context.pushNamed(RouteName.simBindingRoute);
-              },
-              child: const Text('SIM/Device Binding'),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: ListView(
+          children: [
+            Card(
+              child: ListTile(
+                title: const Text('SIM/Device Binding'),
+                onTap: () {
+                  context.pushNamed(RouteName.simBindingRoute);
+                },
+              ),
+            ),
+            Card(
+              child: ListTile(
+                title: const Text('Fixed Deposit Calculator'),
+                onTap: () {
+                  context.pushNamed(RouteName.fixedDepositCalculatorRoute);
+                },
+              ),
             ),
           ],
         ),
       ),
+
+      // Center(
+      //   child: Column(
+      //     mainAxisAlignment: MainAxisAlignment.center,
+      //     children: <Widget>[
+      //       const Text('Welcome to the Home Page!'),
+      //       ElevatedButton(
+      //         onPressed: () {
+      //           context.pushNamed(RouteName.simBindingRoute);
+      //         },
+      //         child: const Text('SIM/Device Binding'),
+      //       ),
+      //     ],
+      //   ),
+      // ),
     );
   }
 }

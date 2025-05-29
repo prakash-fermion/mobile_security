@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class Utils {
   const Utils._();
@@ -36,5 +37,16 @@ class Utils {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text(message), behavior: SnackBarBehavior.floating),
     );
+  }
+
+
+  static String formatIndianCurrency(int amount) {
+    final indianRupeesFormat = NumberFormat.currency(
+           name: "INR",
+           locale: 'en_IN',
+           decimalDigits: 0,
+           symbol: '₹ ',
+        );
+    return indianRupeesFormat.format(amount);
   }
 }
