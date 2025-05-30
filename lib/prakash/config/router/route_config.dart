@@ -8,6 +8,8 @@ import 'package:mobile_security/prakash/features/auth/presentation/pages/auth_pa
 import 'package:mobile_security/prakash/features/auth/presentation/pages/login_page.dart';
 import 'package:mobile_security/prakash/features/auth/presentation/pages/register_page.dart';
 import 'package:mobile_security/prakash/features/auth/presentation/pages/splash_screen.dart';
+import 'package:mobile_security/prakash/features/dynamic_form/presentation/bloc/dynamic_form_bloc.dart';
+import 'package:mobile_security/prakash/features/dynamic_form/presentation/pages/dynamic_form_page.dart';
 import 'package:mobile_security/prakash/features/fixed_deposit_calculator/presentation/bloc/fixed_deposit_calculator_bloc.dart';
 import 'package:mobile_security/prakash/features/fixed_deposit_calculator/presentation/pages/fixed_deposite_calculator_page.dart';
 import 'package:mobile_security/prakash/features/home/presentation/bloc/home_bloc.dart';
@@ -144,6 +146,19 @@ class RouteConfig {
                     calculateFdUsecase: sl(),
                   ),
               child: FixedDepositeCalculatorPage(),
+            ),
+          );
+        },
+      ),
+      GoRoute(
+        name: RouteName.dynamicFormRoute,
+        path: RouteName.dynamicFormRoute,
+        pageBuilder: (context, state) {
+          return MaterialPage(
+            child: BlocProvider(
+              create:
+                  (context) => DynamicFormBloc(getDynamicFormListUsecase: sl()),
+              child: DynamicFormPage(),
             ),
           );
         },

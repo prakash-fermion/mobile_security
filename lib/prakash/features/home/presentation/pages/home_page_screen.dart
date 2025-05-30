@@ -113,6 +113,14 @@ class _HomePageScreenState extends State<HomePageScreen> {
                 },
               ),
             ),
+            Card(
+              child: ListTile(
+                title: const Text('Data driven forms'),
+                onTap: () {
+                  context.pushNamed(RouteName.dynamicFormRoute);
+                },
+              ),
+            ),
           ],
         ),
       ),

@@ -8,4 +8,5 @@ class RouteName {
   static const authRoute = '/auth';
   static const simBindingRoute = '/sim-binding';
   static const fixedDepositCalculatorRoute = '/fixed-deposit-calculator';
+  static const dynamicFormRoute = '/dynamic-form';
 }

@@ -1,4 +1,6 @@
+import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:mobile_security/prakash/core/network/api_service.dart';
 import 'package:mobile_security/prakash/core/utils/prefs_helper.dart';
 import 'package:mobile_security/prakash/features/auth/data/datasources/local/auth_local_datasource.dart';
 import 'package:mobile_security/prakash/features/auth/data/datasources/local/auth_local_datasource_impl.dart';
@@ -10,6 +12,12 @@ import 'package:mobile_security/prakash/features/auth/domain/usecases/login_with
 import 'package:mobile_security/prakash/features/auth/domain/usecases/logout_usecase.dart';
 import 'package:mobile_security/prakash/features/auth/domain/usecases/register_usecase.dart';
 import 'package:mobile_security/prakash/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:mobile_security/prakash/features/dynamic_form/data/datasources/remote/dynamic_form_remote_datasource.dart';
+import 'package:mobile_security/prakash/features/dynamic_form/data/datasources/remote/dynamic_form_remote_datasource_impl.dart';
+import 'package:mobile_security/prakash/features/dynamic_form/data/repositories/dynamic_form_repository_impl.dart';
+import 'package:mobile_security/prakash/features/dynamic_form/domain/repositories/dynamic_form_repository.dart';
+import 'package:mobile_security/prakash/features/dynamic_form/domain/usecases/get_dynamic_form_list_usecase.dart';
+import 'package:mobile_security/prakash/features/dynamic_form/presentation/bloc/dynamic_form_bloc.dart';
 import 'package:mobile_security/prakash/features/fixed_deposit_calculator/data/datasources/local/fixed_deposit_calculator_local_datasource.dart';
 import 'package:mobile_security/prakash/features/fixed_deposit_calculator/data/datasources/local/fixed_deposit_calculator_local_datasource_impl.dart';
 import 'package:mobile_security/prakash/features/fixed_deposit_calculator/data/repositories/fixed_deposit_calculator_repository_impl.dart';
@@ -57,6 +65,8 @@ Future<void> init() async {
     ),
   );
 
+  sl.registerFactory(() => DynamicFormBloc(getDynamicFormListUsecase: sl()));
+
   // Usecases
   sl.registerLazySingleton(() => CheckLoginUsecase(sl()));
   sl.registerLazySingleton(() => LoginUsecase(sl()));
@@ -70,6 +80,8 @@ Future<void> init() async {
   sl.registerLazySingleton(() => GetCitizenDropdownListUsecase(sl()));
   sl.registerLazySingleton(() => GetInterestRateListUsecase(sl()));
   sl.registerLazySingleton(() => CalculateFdUsecase(sl()));
+
+  sl.registerLazySingleton(() => GetDynamicFormListUsecase(sl()));
 
   // Repository
 
@@ -87,6 +99,10 @@ Future<void> init() async {
     ),
   );
 
+  sl.registerLazySingleton<DynamicFormRepository>(
+    () => DynamicFormRepositoryImpl(dynamicFormRemoteDatasource: sl()),
+  );
+
   // Datasources
   sl.registerLazySingleton<AuthLocalDatasource>(
     () => AuthLocalDatasourceImpl(sl()),
@@ -100,9 +116,15 @@ Future<void> init() async {
     () => FixedDepositCalculatorLocalDatasourceImpl(),
   );
 
+  sl.registerLazySingleton<DynamicFormRemoteDatasource>(
+    () => DynamicFormRemoteDatasourceImpl(apiService: sl()),
+  );
+
   // External
 
   SharedPreferences prefs = await SharedPreferences.getInstance();
 
-  sl.registerLazySingleton(() => PrefsHelper(prefs));
+  sl.registerLazySingleton<PrefsHelper>(() => PrefsHelper(prefs));
+  sl.registerLazySingleton<Dio>(() => Dio());
+  sl.registerLazySingleton<ApiService>(() => ApiService(sl()));
 }

@@ -39,14 +39,42 @@ class Utils {
     );
   }
 
-
   static String formatIndianCurrency(int amount) {
     final indianRupeesFormat = NumberFormat.currency(
-           name: "INR",
-           locale: 'en_IN',
-           decimalDigits: 0,
-           symbol: '₹ ',
-        );
+      name: "INR",
+      locale: 'en_IN',
+      decimalDigits: 0,
+      symbol: '₹ ',
+    );
     return indianRupeesFormat.format(amount);
+  }
+
+  static TextInputType getKeyboardType(String? keyboardType) {
+    switch (keyboardType?.toLowerCase()) {
+      case 'visiblePassword':
+        return TextInputType.visiblePassword;
+      case 'emailAddress':
+        return TextInputType.emailAddress;
+      case 'number':
+        return TextInputType.number;
+      case 'phone':
+        return TextInputType.phone;
+      case 'url':
+        return TextInputType.url;
+      case 'multiline':
+        return TextInputType.multiline;
+      case 'datetime':
+        return TextInputType.datetime;
+      case 'name':
+        return TextInputType.name;
+      case 'streetAddress':
+        return TextInputType.streetAddress;
+      case 'webSearch':
+        return TextInputType.webSearch;
+      case 'twitter':
+        return TextInputType.twitter;
+      default:
+        return TextInputType.text;
+    }
   }
 }
