@@ -8,8 +8,12 @@ import 'package:go_router/go_router.dart';
 import 'package:mobile_security/prakash/config/router/route_name.dart';
 import 'package:mobile_security/prakash/core/utils/custom_logger.dart';
 import 'package:mobile_security/prakash/core/utils/platform_channel_utility.dart';
+import 'package:mobile_security/prakash/core/utils/responsive_builder.dart';
 import 'package:mobile_security/prakash/core/utils/utils.dart';
 import 'package:mobile_security/prakash/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:mobile_security/prakash/features/home/presentation/widgets/home_desktop_widget.dart';
+import 'package:mobile_security/prakash/features/home/presentation/widgets/home_mobile_widget.dart';
+import 'package:mobile_security/prakash/features/home/presentation/widgets/home_tablet_widget.dart';
 
 class HomePageScreen extends StatefulWidget {
   const HomePageScreen({super.key});
@@ -62,9 +66,9 @@ class _HomePageScreenState extends State<HomePageScreen> {
 
   @override
   void initState() {
-    // if (Platform.isIOS) {
-    //   _checkDebugger();
-    // }
+    if (Platform.isIOS) {
+      _checkDebugger();
+    }
     super.initState();
   }
 
@@ -95,50 +99,12 @@ class _HomePageScreenState extends State<HomePageScreen> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: ListView(
-          children: [
-            Card(
-              child: ListTile(
-                title: const Text('SIM/Device Binding'),
-                onTap: () {
-                  context.pushNamed(RouteName.simBindingRoute);
-                },
-              ),
-            ),
-            Card(
-              child: ListTile(
-                title: const Text('Fixed Deposit Calculator'),
-                onTap: () {
-                  context.pushNamed(RouteName.fixedDepositCalculatorRoute);
-                },
-              ),
-            ),
-            Card(
-              child: ListTile(
-                title: const Text('Data driven forms'),
-                onTap: () {
-                  context.pushNamed(RouteName.dynamicFormRoute);
-                },
-              ),
-            ),
-          ],
+        child: ResponsiveBuilder(
+          mobile: HomeMobileWidget(),
+          tablet: HomeTabletWidget(),
+          desktop: HomeDesktopWidget(),
         ),
       ),
-
-      // Center(
-      //   child: Column(
-      //     mainAxisAlignment: MainAxisAlignment.center,
-      //     children: <Widget>[
-      //       const Text('Welcome to the Home Page!'),
-      //       ElevatedButton(
-      //         onPressed: () {
-      //           context.pushNamed(RouteName.simBindingRoute);
-      //         },
-      //         child: const Text('SIM/Device Binding'),
-      //       ),
-      //     ],
-      //   ),
-      // ),
     );
   }
 }
