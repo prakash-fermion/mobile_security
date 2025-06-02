@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:local_auth/local_auth.dart';
-import 'package:mobile_security/prakash/config/router/route_name.dart';
+import 'package:mobile_security/config/router/route_name.dart';
 import 'package:mobile_security/prakash/core/utils/utils.dart';
 import 'package:mobile_security/prakash/features/auth/presentation/bloc/auth_bloc.dart';
 

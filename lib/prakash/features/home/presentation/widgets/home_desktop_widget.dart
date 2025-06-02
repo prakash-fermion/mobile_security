@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mobile_security/prakash/config/router/route_name.dart';
+import 'package:mobile_security/config/router/route_name.dart';
 import 'package:mobile_security/prakash/core/utils/responsive_utils.dart';
 
 class HomeDesktopWidget extends StatelessWidget {

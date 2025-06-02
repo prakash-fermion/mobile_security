@@ -1,6 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mobile_security/prakash/config/router/route_name.dart';
+import 'package:mobile_security/config/router/route_name.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_security/prakash/core/di/injection.dart';
 import 'package:mobile_security/prakash/features/auth/presentation/bloc/auth_bloc.dart';
@@ -23,19 +25,36 @@ class RouteConfig {
         name: RouteName.initialRoute,
         path: RouteName.initialRoute,
         pageBuilder: (context, state) {
-          return MaterialPage(
-            child: BlocProvider(
-              create:
-                  (context) => AuthBloc(
-                    checkLoginUsecase: sl(),
-                    loginUsecase: sl(),
-                    registerUsecase: sl(),
-                    logoutUsecase: sl(),
-                    loginWithMpinUsecase: sl(),
-                  )..add(AuthCheckLoginEvent()),
-              child: SplashScreen(),
-            ),
-          );
+          if (Platform.isIOS) {
+            return MaterialPage(
+              child: BlocProvider(
+                create:
+                    (context) => AuthBloc(
+                      checkLoginUsecase: sl(),
+                      loginUsecase: sl(),
+                      registerUsecase: sl(),
+                      logoutUsecase: sl(),
+                      loginWithMpinUsecase: sl(),
+                    )..add(AuthCheckLoginEvent()),
+                child: SplashScreen(),
+              ),
+            );
+          } else {
+            ///Add initial route for android here
+            return MaterialPage(
+              child: BlocProvider(
+                create:
+                    (context) => AuthBloc(
+                      checkLoginUsecase: sl(),
+                      loginUsecase: sl(),
+                      registerUsecase: sl(),
+                      logoutUsecase: sl(),
+                      loginWithMpinUsecase: sl(),
+                    )..add(AuthCheckLoginEvent()),
+                child: SplashScreen(),
+              ),
+            );
+          }
         },
       ),
 

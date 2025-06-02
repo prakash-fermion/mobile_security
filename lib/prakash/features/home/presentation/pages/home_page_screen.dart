@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_jailbreak_detection/flutter_jailbreak_detection.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mobile_security/prakash/config/router/route_name.dart';
+import 'package:mobile_security/config/router/route_name.dart';
 import 'package:mobile_security/prakash/core/utils/custom_logger.dart';
 import 'package:mobile_security/prakash/core/utils/platform_channel_utility.dart';
 import 'package:mobile_security/prakash/core/utils/responsive_builder.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mobile_security/prakash/config/router/route_name.dart';
+import 'package:mobile_security/config/router/route_name.dart';
 
 class HomeTabletWidget extends StatelessWidget {
   const HomeTabletWidget({super.key});

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_security/prakash/config/router/route_config.dart';
+import 'package:mobile_security/config/router/route_config.dart';
 import 'package:mobile_security/prakash/core/di/injection.dart';
 import 'package:no_screenshot/no_screenshot.dart';
 
