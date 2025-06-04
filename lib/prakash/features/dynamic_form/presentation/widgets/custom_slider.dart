@@ -35,6 +35,16 @@ class CustomSlider extends StatelessWidget {
           label: '${selectedValue ?? min}',
           onChanged: onChanged,
         ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(min, style: Theme.of(context).textTheme.bodySmall),
+              Text(max, style: Theme.of(context).textTheme.bodySmall),
+            ],
+          ),
+        ),
       ],
     );
   }

@@ -40,8 +40,21 @@ class CustomRangeSlider extends StatelessWidget {
           min: double.tryParse(min) ?? 0.0,
           max: double.tryParse(max) ?? 100.0,
           divisions: int.tryParse(divisions) ?? 10,
-          labels: RangeLabels('${selectedValues?.start}', '${selectedValues?.end}'),
+          labels: RangeLabels(
+            '${selectedValues?.start}',
+            '${selectedValues?.end}',
+          ),
           onChanged: onChanged,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(min, style: Theme.of(context).textTheme.bodySmall),
+              Text(max, style: Theme.of(context).textTheme.bodySmall),
+            ],
+          ),
         ),
       ],
     );
