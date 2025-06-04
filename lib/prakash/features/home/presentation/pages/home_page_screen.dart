@@ -67,7 +67,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
   @override
   void initState() {
     if (Platform.isIOS) {
-      _checkDebugger();
+      // _checkDebugger();
     }
     super.initState();
   }
