@@ -3,8 +3,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_jailbreak_detection/flutter_jailbreak_detection.dart';
+// import 'package:flutter_jailbreak_detection/flutter_jailbreak_detection.dart';
 import 'package:go_router/go_router.dart';
+import 'package:jailbreak_root_detection/jailbreak_root_detection.dart';
 import 'package:mobile_security/config/router/route_name.dart';
 import 'package:mobile_security/prakash/core/utils/custom_logger.dart';
 import 'package:mobile_security/prakash/core/utils/platform_channel_utility.dart';
@@ -25,11 +26,16 @@ class HomePageScreen extends StatefulWidget {
 class _HomePageScreenState extends State<HomePageScreen> {
   void _checkDebugger() async {
     String message = '';
-    bool jailbroken = await FlutterJailbreakDetection.jailbroken;
-    bool devMode = await FlutterJailbreakDetection.developerMode;
+    // bool jailbroken = await FlutterJailbreakDetection.jailbroken;
+    // bool devMode = await FlutterJailbreakDetection.developerMode;
+    bool jailbroken = await JailbreakRootDetection.instance.isJailBroken;
+    bool devMode = Platform.isAndroid ? await JailbreakRootDetection.instance.isDevMode : await JailbreakRootDetection.instance.isRealDevice;
     CustomLogger.info('Jailbreak: $jailbroken --- Developer Mode: $devMode');
 
-    bool isDebug = await PlatformChannelUtility.isDebuggerAttached();
+    bool isDebug =
+        Platform.isIOS
+            ? await PlatformChannelUtility.isDebuggerAttached()
+            : false;
     CustomLogger.info('Debugger attached: $isDebug');
 
     if (jailbroken) {
@@ -66,9 +72,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
 
   @override
   void initState() {
-    if (Platform.isIOS) {
-      // _checkDebugger();
-    }
+   // _checkDebugger();
     super.initState();
   }
 

@@ -27,6 +27,14 @@ class HomeMobileWidget extends StatelessWidget {
         ),
         Card(
           child: ListTile(
+            title: const Text('RD Calculator'),
+            onTap: () {
+              context.pushNamed(RouteName.rdCalculatorRoute);
+            },
+          ),
+        ),
+        Card(
+          child: ListTile(
             title: const Text('Data driven forms'),
             onTap: () {
               context.pushNamed(RouteName.dynamicFormRoute);

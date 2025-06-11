@@ -49,6 +49,22 @@ class HomeTabletWidget extends StatelessWidget {
         ),
         InkWell(
           onTap: () {
+            context.pushNamed(RouteName.rdCalculatorRoute);
+          },
+          child: Card(
+            child: Container(
+              padding: const EdgeInsets.all(16.0),
+              alignment: Alignment.center,
+              child: const Text(
+                'RD Calculator',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 16),
+              ),
+            ),
+          ),
+        ),
+        InkWell(
+          onTap: () {
             context.pushNamed(RouteName.dynamicFormRoute);
           },
           child: Card(

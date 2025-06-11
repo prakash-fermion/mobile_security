@@ -51,6 +51,24 @@ class HomeDesktopWidget extends StatelessWidget {
         ),
         InkWell(
           onTap: () {
+            context.pushNamed(RouteName.rdCalculatorRoute);
+          },
+          child: Card(
+            child: Container(
+              width: ResponsiveUtils.thirtyPercentScreenWidth(context),
+              height: 150,
+              alignment: Alignment.center,
+              padding: const EdgeInsets.all(16.0),
+              child: Text(
+                'RD Calculator',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 16),
+              ),
+            ),
+          ),
+        ),
+        InkWell(
+          onTap: () {
             context.pushNamed(RouteName.dynamicFormRoute);
           },
           child: Card(

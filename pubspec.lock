@@ -113,14 +113,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "8.10.1"
-  carrier_info:
-    dependency: "direct main"
-    description:
-      name: carrier_info
-      sha256: "72b650aecb6267804f71c279099e87f0fe4201321ebdb09a13a60db18509ac43"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.8"
   characters:
     dependency: transitive
     description:
@@ -286,14 +278,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "9.1.1"
-  flutter_jailbreak_detection:
-    dependency: "direct main"
-    description:
-      name: flutter_jailbreak_detection
-      sha256: "67ff11ea41965152d24db7104da1f9b343f94ada64c2a9e309ec4d753a12d281"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.10.0"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -310,6 +294,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.28"
+  flutter_sim_data:
+    dependency: "direct main"
+    description:
+      name: flutter_sim_data
+      sha256: "41706faabc297b7254542ea3be6b5c597c795b852ad2cb7be89f244a8d2744dd"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.5"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -400,6 +392,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.5"
+  jailbreak_root_detection:
+    dependency: "direct main"
+    description:
+      name: jailbreak_root_detection
+      sha256: c611229940a09785bd686364e92a40b07724926d2496c931527805101eb3da86
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.6"
   js:
     dependency: transitive
     description:

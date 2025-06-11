@@ -33,6 +33,7 @@ import 'package:mobile_security/prakash/features/home/domain/repositories/home_r
 import 'package:mobile_security/prakash/features/home/domain/usecases/check_binding_status_usecase.dart';
 import 'package:mobile_security/prakash/features/home/domain/usecases/verify_sim_binding_usecase.dart';
 import 'package:mobile_security/prakash/features/home/presentation/bloc/home_bloc.dart';
+import 'package:mobile_security/prakash/features/sim_binding/bloc/sim_binding_bloc.dart';
 import 'package:prefs/prefs.dart';
 
 final sl = GetIt.instance;
@@ -66,6 +67,8 @@ Future<void> init() async {
   );
 
   sl.registerFactory(() => DynamicFormBloc(getDynamicFormListUsecase: sl()));
+
+  sl.registerFactory(() => SimBindingBloc());
 
   // Usecases
   sl.registerLazySingleton(() => CheckLoginUsecase(sl()));

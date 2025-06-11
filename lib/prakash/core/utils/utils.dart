@@ -77,4 +77,18 @@ class Utils {
         return TextInputType.text;
     }
   }
+
+  static String formatAmount(double amount, {int decimalPlaces = 0}) {
+    // Format the number with the specified decimal places
+    String formattedAmount = amount.toStringAsFixed(decimalPlaces);
+
+    // Use a regular expression to add commas to the formatted amount
+    RegExp regExp = RegExp(r"(\d)(?=(\d{3})+(?!\d))");
+    formattedAmount = formattedAmount.replaceAllMapped(
+      regExp,
+      (match) => "${match[1]},",
+    );
+
+    return "₹$formattedAmount"; // Add ₹ symbol for currency
+  }
 }

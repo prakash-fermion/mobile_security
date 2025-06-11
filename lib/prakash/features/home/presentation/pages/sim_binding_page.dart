@@ -1,4 +1,3 @@
-import 'package:carrier_info/carrier_info.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -26,28 +25,11 @@ class _SimBindingPageState extends State<SimBindingPage>
   bool _enableSimBinding = false;
 
   void _getDeviceInfo() async {
-    final carrierInfo = await CarrierInfo.getIosInfo();
     final ios = await DeviceInfoPlugin().iosInfo;
 
     _deviceId = ios.identifierForVendor;
 
     CustomLogger.info('Current Device ID: $_deviceId');
-
-    for (var element in carrierInfo.carrierData) {
-      CustomLogger.info('Carrier details: $element ---');
-      CustomLogger.info('Carrier Name: ${element.carrierName}');
-      CustomLogger.info('Carrier Mobile Country: ${element.mobileCountryCode}');
-      CustomLogger.info('Carrier Network Code: ${element.mobileNetworkCode}');
-      CustomLogger.info('Carrier ISO Country Code: ${element.isoCountryCode}');
-      CustomLogger.info('Carrier Allows VOIP: ${element.carrierAllowsVOIP}');
-    }
-
-    for (var element in carrierInfo.carrierRadioAccessTechnologyTypeList) {
-      CustomLogger.info('Carrier Radio Access Technology Type: $element');
-    }
-    CustomLogger.info(
-      'Support embedded SIM: ${carrierInfo.supportsEmbeddedSIM}',
-    );
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _checkBindingStatus();

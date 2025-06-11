@@ -1,13 +1,13 @@
 PODS:
-  - carrier_info (0.0.1):
-    - Flutter
   - device_info_plus (0.0.1):
     - Flutter
   - Flutter (1.0.0)
-  - flutter_jailbreak_detection (1.0.0):
+  - flutter_sim_data (0.0.1):
     - Flutter
-    - IOSSecuritySuite
-  - IOSSecuritySuite (2.1.0)
+  - IOSSecuritySuite (1.9.11)
+  - jailbreak_root_detection (1.0.1):
+    - Flutter
+    - IOSSecuritySuite (~> 1.9.10)
   - local_auth_darwin (0.0.1):
     - Flutter
     - FlutterMacOS
@@ -22,10 +22,10 @@ PODS:
     - Flutter
 
 DEPENDENCIES:
-  - carrier_info (from `.symlinks/plugins/carrier_info/ios`)
   - device_info_plus (from `.symlinks/plugins/device_info_plus/ios`)
   - Flutter (from `Flutter`)
-  - flutter_jailbreak_detection (from `.symlinks/plugins/flutter_jailbreak_detection/ios`)
+  - flutter_sim_data (from `.symlinks/plugins/flutter_sim_data/ios`)
+  - jailbreak_root_detection (from `.symlinks/plugins/jailbreak_root_detection/ios`)
   - local_auth_darwin (from `.symlinks/plugins/local_auth_darwin/darwin`)
   - no_screenshot (from `.symlinks/plugins/no_screenshot/ios`)
   - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
@@ -37,14 +37,14 @@ SPEC REPOS:
     - ScreenProtectorKit
 
 EXTERNAL SOURCES:
-  carrier_info:
-    :path: ".symlinks/plugins/carrier_info/ios"
   device_info_plus:
     :path: ".symlinks/plugins/device_info_plus/ios"
   Flutter:
     :path: Flutter
-  flutter_jailbreak_detection:
-    :path: ".symlinks/plugins/flutter_jailbreak_detection/ios"
+  flutter_sim_data:
+    :path: ".symlinks/plugins/flutter_sim_data/ios"
+  jailbreak_root_detection:
+    :path: ".symlinks/plugins/jailbreak_root_detection/ios"
   local_auth_darwin:
     :path: ".symlinks/plugins/local_auth_darwin/darwin"
   no_screenshot:
@@ -55,11 +55,11 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/url_launcher_ios/ios"
 
 SPEC CHECKSUMS:
-  carrier_info: 74da91657834617c4409e6afdb706ac4685efe66
   device_info_plus: bf2e3232933866d73fe290f2942f2156cdd10342
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
-  flutter_jailbreak_detection: c5bf66ff6c0c4230769b6ba0bd63eb6ac4148a76
-  IOSSecuritySuite: 45e8531b05ffa72b5661cbdb5b5b5648a8de1a84
+  flutter_sim_data: 6d3833b2ca2afef78535a2454e2acf513776e7f1
+  IOSSecuritySuite: b51056d5411aee567153ca86ce7f6edfdc5d2654
+  jailbreak_root_detection: b95de80c3e51eec1fc7d0225784d2fc038fa95ed
   local_auth_darwin: 66e40372f1c29f383a314c738c7446e2f7fdadc3
   no_screenshot: 67d110f12466f4913b488803d4e498d03ef2889e
   ScreenProtectorKit: 83a6281b02c7a5902ee6eac4f5045f674e902ae4
