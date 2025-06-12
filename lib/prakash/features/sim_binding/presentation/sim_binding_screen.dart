@@ -155,7 +155,7 @@ class _SimBindingScreenState extends State<SimBindingScreen> {
                             ),
                           );
 
-                          context.pushNamed(RouteName.homeRoute);
+                          context.pop();
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.blueAccent,
