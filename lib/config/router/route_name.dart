@@ -9,4 +9,5 @@ class RouteName {
   static const simBindingRoute = '/sim-binding';
   static const fixedDepositCalculatorRoute = '/fixed-deposit-calculator';
   static const dynamicFormRoute = '/dynamic-form';
+  static const rdCalculatorRoute = '/rd-calculator';
 }
