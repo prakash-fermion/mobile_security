@@ -72,7 +72,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
 
   @override
   void initState() {
-   // _checkDebugger();
+   _checkDebugger();
     super.initState();
   }
 

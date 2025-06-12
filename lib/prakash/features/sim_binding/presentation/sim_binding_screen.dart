@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_sim_data/sim_data_model.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mobile_security/config/router/route_name.dart';
 import 'package:mobile_security/prakash/core/utils/custom_logger.dart';
 import 'package:mobile_security/prakash/features/sim_binding/bloc/sim_binding_event.dart';
 import 'package:url_launcher/url_launcher.dart';
