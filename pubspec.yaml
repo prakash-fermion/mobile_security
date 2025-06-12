@@ -50,7 +50,7 @@ dependencies:
   dio: ^5.8.0+1
   json_annotation: ^4.9.0
   retrofit: ^4.4.2
-  flutter_sim_data: ^1.0.5
+  flutter_sim_data: ^1.0.5 # For Android and iOS only, works properly for android platforms
 
 dev_dependencies:
   flutter_test:
